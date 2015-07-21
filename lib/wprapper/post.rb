@@ -1,3 +1,5 @@
+require 'hashie'
+
 module Wprapper
   class Post < Hashie::Dash
     property :categories
@@ -67,7 +69,7 @@ module Wprapper
 
       def fetch_categories
         terms.select{|t| t['taxonomy'] == 'category'}
-             .map{|c| WP::Category.new_from_wp(c)}
+             .map{|c| Category.new_from_wp(c)}
       end
 
       def fetch_term(taxonomy, default)
@@ -97,15 +99,15 @@ module Wprapper
           post_type:   'post'
         }
 
-        WP::Wordpress.posts(filters).map do |r|
-          WP::Post.new_from_wp(r)
+        Wordpress.posts(filters).map do |r|
+          Post.new_from_wp(r)
         end
       end
 
       def find(post_id)
-        wp_post = WP::Wordpress.post_by_id(post_id)
+        wp_post = Wordpress.post_by_id(post_id)
 
-        WP::Post.new_from_wp(wp_post)
+        Post.new_from_wp(wp_post)
       end
     end
 

@@ -1,3 +1,5 @@
+require 'rubypress'
+
 module Wprapper
   class Wordpress
     class << self
@@ -38,9 +40,9 @@ module Wprapper
 
     def client
       @wp ||= Rubypress::Client.new({
-        host:     Rails.application.secrets.blog_host,
-        username: Rails.application.secrets.blog_username,
-        password: Rails.application.secrets.blog_password
+        host:     Wprapper.configuration.hostname,
+        username: Wprapper.configuration.username,
+        password: Wprapper.configuration.password
       })
     end
   end
