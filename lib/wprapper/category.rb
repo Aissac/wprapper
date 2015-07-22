@@ -1,5 +1,5 @@
 module Wprapper
-  class Category < Hashie::Dash
+  class Category < Base
     property :identifier
     property :name
     property :slug

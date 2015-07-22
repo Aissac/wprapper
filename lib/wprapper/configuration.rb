@@ -6,5 +6,11 @@ module Wprapper
 
     # The credentials for the wordpress api
     attr_accessor :username, :password
+
+    class << self
+      def current
+        @config ||= new
+      end
+    end
 	end
 end

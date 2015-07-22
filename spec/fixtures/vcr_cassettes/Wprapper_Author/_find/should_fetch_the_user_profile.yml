@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://takeover.staging.wpengine.com/xmlrpc.php
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" ?><methodCall><methodName>wp.getUser</methodName><params><param><value><array><data><value><i4>0</i4></value><value><string>spdev</string></value><value><string>rQEUD5KAX4h0</string></value><value><string>4</string></value><value><array><data><value><string>user_id</string></value><value><string>email</string></value><value><string>display_name</string></value></data></array></value></data></array></value></param></params></methodCall>
+    headers:
+      User-Agent:
+      - XMLRPC::Client (Ruby 2.1.5)
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '460'
+      Connection:
+      - keep-alive
+      Accept-Encoding:
+      - identity
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Date:
+      - Wed, 22 Jul 2015 11:59:37 GMT
+      Keep-Alive:
+      - timeout=20
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=6A891298BE85669B7C4B63BC0B5A6408; path=/
+      Content-Length:
+      - '428'
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <methodResponse>
+          <params>
+            <param>
+              <value>
+              <struct>
+          <member><name>user_id</name><value><string>4</string></value></member>
+          <member><name>email</name><value><string>qpoliticalliz@gmail.com</string></value></member>
+          <member><name>display_name</name><value><string>Elizabeth</string></value></member>
+        </struct>
+              </value>
+            </param>
+          </params>
+        </methodResponse>
+    http_version: 
+  recorded_at: Wed, 22 Jul 2015 11:59:37 GMT
+recorded_with: VCR 2.9.3

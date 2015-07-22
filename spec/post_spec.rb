@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'active_support/core_ext/date_time/conversions'
 
 describe Wprapper::Post do
   describe '.new_from_wp' do
@@ -76,16 +76,16 @@ describe Wprapper::Post do
     it 'fetches the latest published posts', vcr: true do
       expected = [
         [
-          '5482',
-          'http://takeover.staging.wpengine.com/ronda-rousey-kicks-jimmy-fallons-ass/'
-        ],
+          "12788", 
+          "http://takeover.staging.wpengine.com/this-rare-footage-of-elvis-goin-country-will-make-you-fall-in-love-with-him-all-over-again/"
+        ], 
         [
-          '5424',
-          'http://takeover.staging.wpengine.com/when-he-found-out-his-son-was-the-school-bully-this-dads-response-is-epic/'
-        ],
+          "11048", 
+          "http://takeover.staging.wpengine.com/this-little-girl-saw-a-marine-and-cried-i-was-speechless-when-i-found-out-why/"
+        ], 
         [
-          '5438',
-          'http://takeover.staging.wpengine.com/forget-what-you-know-about-grilling-this-simple-trick-changes-everything/'
+          "12155", 
+          "http://takeover.staging.wpengine.com/when-the-choir-started-singing-america-the-beautiful-i-couldnt-help-but-thank-god-for-our-country/"
         ]
       ]
 

@@ -1,0 +1,139 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://takeover.staging.wpengine.com/xmlrpc.php
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" ?><methodCall><methodName>wp.getPost</methodName><params><param><value><array><data><value><i4>0</i4></value><value><string>spdev</string></value><value><string>rQEUD5KAX4h0</string></value><value><string>5482</string></value><value><array><data><value><string>post</string></value><value><string>terms</string></value><value><string>custom_fields</string></value></data></array></value></data></array></value></param></params></methodCall>
+    headers:
+      User-Agent:
+      - XMLRPC::Client (Ruby 2.1.5)
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '461'
+      Connection:
+      - keep-alive
+      Accept-Encoding:
+      - identity
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Date:
+      - Wed, 22 Jul 2015 11:59:39 GMT
+      Keep-Alive:
+      - timeout=20
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=6A891298BE85669B7C4B63BC0B5A6408; path=/
+      Content-Length:
+      - '9459'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<methodResponse>\n  <params>\n
+        \   <param>\n      <value>\n      <struct>\n  <member><name>post_id</name><value><string>5482</string></value></member>\n
+        \ <member><name>post_title</name><value><string>Things Got Real When UFC Fighter
+        Ronda Rousey Showed Jimmy Fallon Why She's Called The &quot;Arm Collector&quot;</string></value></member>\n
+        \ <member><name>post_date</name><value><dateTime.iso8601>20150325T15:23:09</dateTime.iso8601></value></member>\n
+        \ <member><name>post_date_gmt</name><value><dateTime.iso8601>20150325T20:23:09</dateTime.iso8601></value></member>\n
+        \ <member><name>post_modified</name><value><dateTime.iso8601>20150325T15:23:09</dateTime.iso8601></value></member>\n
+        \ <member><name>post_modified_gmt</name><value><dateTime.iso8601>20150325T20:23:09</dateTime.iso8601></value></member>\n
+        \ <member><name>post_status</name><value><string>publish</string></value></member>\n
+        \ <member><name>post_type</name><value><string>post</string></value></member>\n
+        \ <member><name>post_name</name><value><string>ronda-rousey-kicks-jimmy-fallons-ass</string></value></member>\n
+        \ <member><name>post_author</name><value><string>4</string></value></member>\n
+        \ <member><name>post_password</name><value><string></string></value></member>\n
+        \ <member><name>post_excerpt</name><value><string></string></value></member>\n
+        \ <member><name>post_content</name><value><string>When Jimmy Fallon invited
+        UFC Women's Bantamweight Champion Ronda Rousey to &quot;The Tonight Show&quot;,
+        he didn't expect for his strength and endurance to be put to the test. \r\n\r\nThe
+        undefeated mixed martial artist and judoka has won nine of her eleven fights
+        by doing her famous armbar. So when Jimmy figured out his safe word, he asked
+        Rousey to demonstrate on him. The result is pretty funny. \r\n\r\n&lt;iframe
+        width=&quot;853&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/JBUFlOB8Vjg&quot;
+        frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;\r\n\r\nAfter
+        that move, it'll probably be awhile before Ronda is invited back to &quot;The
+        Tonight Show.&quot; She's so awesome.</string></value></member>\n  <member><name>post_parent</name><value><string>0</string></value></member>\n
+        \ <member><name>post_mime_type</name><value><string></string></value></member>\n
+        \ <member><name>link</name><value><string>http://takeover.staging.wpengine.com/ronda-rousey-kicks-jimmy-fallons-ass/</string></value></member>\n
+        \ <member><name>guid</name><value><string>http://takeover.staging.wpengine.com/?p=5482</string></value></member>\n
+        \ <member><name>menu_order</name><value><int>0</int></value></member>\n  <member><name>comment_status</name><value><string>open</string></value></member>\n
+        \ <member><name>ping_status</name><value><string>open</string></value></member>\n
+        \ <member><name>sticky</name><value><boolean>0</boolean></value></member>\n
+        \ <member><name>post_thumbnail</name><value><struct>\n  <member><name>attachment_id</name><value><string>5483</string></value></member>\n
+        \ <member><name>date_created_gmt</name><value><dateTime.iso8601>20150325T19:07:27</dateTime.iso8601></value></member>\n
+        \ <member><name>parent</name><value><int>5482</int></value></member>\n  <member><name>link</name><value><string>http://qpolcom.s3.amazonaws.com/wp-content/uploads/2015/03/ronda-rousey-jimmy-fallon.png</string></value></member>\n
+        \ <member><name>title</name><value><string>ronda-rousey-jimmy-fallon</string></value></member>\n
+        \ <member><name>caption</name><value><string></string></value></member>\n
+        \ <member><name>description</name><value><string></string></value></member>\n
+        \ <member><name>metadata</name><value><struct>\n  <member><name>width</name><value><int>600</int></value></member>\n
+        \ <member><name>height</name><value><int>314</int></value></member>\n  <member><name>file</name><value><string>2015/03/ronda-rousey-jimmy-fallon.png</string></value></member>\n
+        \ <member><name>sizes</name><value><struct>\n  <member><name>thumbnail</name><value><struct>\n
+        \ <member><name>file</name><value><string>ronda-rousey-jimmy-fallon-150x150.png</string></value></member>\n
+        \ <member><name>width</name><value><int>150</int></value></member>\n  <member><name>height</name><value><int>150</int></value></member>\n
+        \ <member><name>mime-type</name><value><string>image/png</string></value></member>\n</struct></value></member>\n
+        \ <member><name>medium</name><value><struct>\n  <member><name>file</name><value><string>ronda-rousey-jimmy-fallon-320x190.png</string></value></member>\n
+        \ <member><name>width</name><value><int>320</int></value></member>\n  <member><name>height</name><value><int>190</int></value></member>\n
+        \ <member><name>mime-type</name><value><string>image/png</string></value></member>\n</struct></value></member>\n
+        \ <member><name>optin-monster-lightbox-theme-balance</name><value><struct>\n
+        \ <member><name>file</name><value><string>ronda-rousey-jimmy-fallon-225x175.png</string></value></member>\n
+        \ <member><name>width</name><value><int>225</int></value></member>\n  <member><name>height</name><value><int>175</int></value></member>\n
+        \ <member><name>mime-type</name><value><string>image/png</string></value></member>\n</struct></value></member>\n
+        \ <member><name>optin-monster-lightbox-theme-case-study</name><value><struct>\n
+        \ <member><name>file</name><value><string>ronda-rousey-jimmy-fallon-280x245.png</string></value></member>\n
+        \ <member><name>width</name><value><int>280</int></value></member>\n  <member><name>height</name><value><int>245</int></value></member>\n
+        \ <member><name>mime-type</name><value><string>image/png</string></value></member>\n</struct></value></member>\n
+        \ <member><name>optin-monster-lightbox-theme-clean-slate</name><value><struct>\n
+        \ <member><name>file</name><value><string>ronda-rousey-jimmy-fallon-230x195.png</string></value></member>\n
+        \ <member><name>width</name><value><int>230</int></value></member>\n  <member><name>height</name><value><int>195</int></value></member>\n
+        \ <member><name>mime-type</name><value><string>image/png</string></value></member>\n</struct></value></member>\n</struct></value></member>\n
+        \ <member><name>image_meta</name><value><struct>\n  <member><name>aperture</name><value><int>0</int></value></member>\n
+        \ <member><name>credit</name><value><string></string></value></member>\n  <member><name>camera</name><value><string></string></value></member>\n
+        \ <member><name>caption</name><value><string></string></value></member>\n
+        \ <member><name>created_timestamp</name><value><int>0</int></value></member>\n
+        \ <member><name>copyright</name><value><string></string></value></member>\n
+        \ <member><name>focal_length</name><value><int>0</int></value></member>\n
+        \ <member><name>iso</name><value><int>0</int></value></member>\n  <member><name>shutter_speed</name><value><int>0</int></value></member>\n
+        \ <member><name>title</name><value><string></string></value></member>\n  <member><name>orientation</name><value><int>0</int></value></member>\n</struct></value></member>\n</struct></value></member>\n
+        \ <member><name>thumbnail</name><value><string>http://qpolcom.s3.amazonaws.com/wp-content/uploads/2015/03/ronda-rousey-jimmy-fallon-150x150.png</string></value></member>\n</struct></value></member>\n
+        \ <member><name>post_format</name><value><string>standard</string></value></member>\n
+        \ <member><name>terms</name><value><array><data>\n  <value><struct>\n  <member><name>term_id</name><value><string>11</string></value></member>\n
+        \ <member><name>name</name><value><string>Entertainment</string></value></member>\n
+        \ <member><name>slug</name><value><string>entertainment</string></value></member>\n
+        \ <member><name>term_group</name><value><string>0</string></value></member>\n
+        \ <member><name>term_taxonomy_id</name><value><string>11</string></value></member>\n
+        \ <member><name>taxonomy</name><value><string>category</string></value></member>\n
+        \ <member><name>description</name><value><string></string></value></member>\n
+        \ <member><name>parent</name><value><string>0</string></value></member>\n
+        \ <member><name>count</name><value><int>334</int></value></member>\n  <member><name>filter</name><value><string>raw</string></value></member>\n</struct></value>\n</data></array></value></member>\n
+        \ <member><name>custom_fields</name><value><array><data>\n  <value><struct>\n
+        \ <member><name>id</name><value><string>80374</string></value></member>\n
+        \ <member><name>key</name><value><string>_yoast_wpseo_opengraph-image</string></value></member>\n
+        \ <member><name>value</name><value><string>http://qpolcom.s3.amazonaws.com/wp-content/uploads/2015/03/ronda-rousey-jimmy-fallon.png</string></value></member>\n</struct></value>\n
+        \ <value><struct>\n  <member><name>id</name><value><string>80532</string></value></member>\n
+        \ <member><name>key</name><value><string>_yoast_wpseo_title</string></value></member>\n
+        \ <member><name>value</name><value><string>Things Got Real When UFC Fighter
+        Ronda Rousey Showed Jimmy Fallon Why She's Called The &quot;Arm Collector&quot;</string></value></member>\n</struct></value>\n
+        \ <value><struct>\n  <member><name>id</name><value><string>80359</string></value></member>\n
+        \ <member><name>key</name><value><string>portrait_image</string></value></member>\n
+        \ <member><name>value</name><value><string></string></value></member>\n</struct></value>\n
+        \ <value><struct>\n  <member><name>id</name><value><string>80361</string></value></member>\n
+        \ <member><name>key</name><value><string>title_position</string></value></member>\n
+        \ <member><name>value</name><value><string></string></value></member>\n</struct></value>\n</data></array></value></member>\n</struct>\n
+        \     </value>\n    </param>\n  </params>\n</methodResponse>\n"
+    http_version: 
+  recorded_at: Wed, 22 Jul 2015 11:59:40 GMT
+recorded_with: VCR 2.9.3

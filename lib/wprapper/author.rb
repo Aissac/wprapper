@@ -1,14 +1,12 @@
-require 'hashie'
-
 module Wprapper
-  class Author < Hashie::Dash
+  class Author < Base
     property :display_name
     property :identifier
     property :email
 
     class << self
       def find(identifier)
-        hash = Wordpress.user(identifier)
+        hash = wordpress.user(identifier)
         
         new({
           identifier:   hash.fetch('user_id'),

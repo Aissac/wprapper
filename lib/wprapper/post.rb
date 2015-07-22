@@ -1,7 +1,8 @@
 require 'hashie'
+require 'active_support/core_ext/object/blank'
 
 module Wprapper
-  class Post < Hashie::Dash
+  class Post < Base
     property :categories
     property :content
     property :identifier
@@ -99,13 +100,13 @@ module Wprapper
           post_type:   'post'
         }
 
-        Wordpress.posts(filters).map do |r|
+        wordpress.posts(filters).map do |r|
           Post.new_from_wp(r)
         end
       end
 
       def find(post_id)
-        wp_post = Wordpress.post_by_id(post_id)
+        wp_post = wordpress.post(post_id)
 
         Post.new_from_wp(wp_post)
       end
