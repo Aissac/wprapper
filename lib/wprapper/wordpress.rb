@@ -2,22 +2,8 @@ require 'rubypress'
 
 module Wprapper
   class Wordpress
-    class << self
-      def post_by_id(identifier)
-        new.post(identifier)
-      end
-
-      def posts(filters)
-        new.posts(filters)
-      end
-
-      def user(identifier)
-        new.user(identifier)
-      end
-
-      def update_post(identifier, options={})
-        new.update_post(identifier, options)
-      end
+    def initialize(configuration)
+      @configuration = configuration
     end
 
     def post(identifier)
@@ -40,9 +26,9 @@ module Wprapper
 
     def client
       @wp ||= Rubypress::Client.new({
-        host:     Wprapper.configuration.hostname,
-        username: Wprapper.configuration.username,
-        password: Wprapper.configuration.password
+        host:     @configuration.hostname,
+        username: @configuration.username,
+        password: @configuration.password
       })
     end
   end
