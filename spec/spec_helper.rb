@@ -1,4 +1,3 @@
-# require 'webmock'
 require 'vcr'
 require 'wprapper'
 require 'support/stub_config'
@@ -12,12 +11,11 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-
   config.include(StubConfig, vcr: true)
 end
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-  config.hook_into :webmock # or :fakeweb
+  config.hook_into :webmock
   config.configure_rspec_metadata!
 end

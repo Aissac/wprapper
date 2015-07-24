@@ -1,5 +1,4 @@
 describe Wprapper::Author do
-
   describe '.find' do
     let(:user_identifier) { '4' }
 
