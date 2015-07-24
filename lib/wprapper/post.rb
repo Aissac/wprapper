@@ -1,4 +1,3 @@
-require 'hashie'
 require 'active_support/core_ext/object/blank'
 
 module Wprapper

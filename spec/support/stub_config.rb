@@ -1,11 +1,15 @@
-require "active_support"
+require 'dotenv'
+
+Dotenv.load
 
 module StubConfig
   extend ActiveSupport::Concern
 
   included do
-    Wprapper::Configuration.current.hostname = "takeover.staging.wpengine.com"
-    Wprapper::Configuration.current.username = "spdev"
-    Wprapper::Configuration.current.password = "rQEUD5KAX4h0"
+    Wprapper.configure do |config|
+      config.hostname = ENV['WP_HOSTNAME']
+      config.username = ENV['WP_USERNAME']
+      config.password = ENV['WP_PASSWORD']
+    end
   end
 end
