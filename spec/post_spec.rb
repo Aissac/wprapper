@@ -110,21 +110,47 @@ describe Wprapper::Post do
     end
   end
 
-  describe '.fetch_image_url' do
-    it 'should fetch the image url successfuly from hash' do
-      wp_post_hash = { 'post_thumbnail' => { 'link' => "www.image.com"  }}
+  describe Wprapper::Post::Mapper do
+    describe '.fetch_image_url' do
+      it 'should fetch the image url successfuly from hash' do
+        wp_post_hash = { 'post_thumbnail' => { 'link' => "www.image.com"  }}
 
-      mapper = Wprapper::Post::Mapper.new(wp_post_hash)
+        mapper = Wprapper::Post::Mapper.new(wp_post_hash)
 
-      expect(mapper.fetch_image_url).to eql('www.image.com')
+        expect(mapper.fetch_image_url).to eql('www.image.com')
+      end
+
+      it 'should fetch the image url successfuly from array' do
+        wp_post_hash = { 'post_thumbnail' => [ "www.image.com" ] }
+
+        mapper = Wprapper::Post::Mapper.new(wp_post_hash)
+
+        expect(mapper.fetch_image_url).to eql('www.image.com')
+      end
+    end
+  end
+
+  describe '.update_custom_fields' do
+    let(:post) { Wprapper::Post.new }
+
+    before do
+      post.custom_fields = [ 
+        { 'id' => 1,   'key' => 'a', 'value' => 'x' },
+        { 'id' => 12,  'key' => 'b', 'value' => 'y' },
+        { 'id' => 123, 'key' => 'c', 'value' => 'z' }
+      ]
     end
 
-    it 'should fetch the image url successfuly from array' do
-      wp_post_hash = { 'post_thumbnail' => [ "www.image.com" ] }
+    it 'should update only the custom fields specified' do
+      custom_fields = { 'a' => 'test', 'z' => 'not existing' }
+      expected_custom_fields_to_update = [
+        { 'id' => 1, 'key' => 'a', 'value' => 'test' },
+        { 'key' => 'z', 'value' => 'not existing' }
+      ]
 
-      mapper = Wprapper::Post::Mapper.new(wp_post_hash)
+      expect_any_instance_of(Wprapper::Wordpress).to receive(:update_post).with(post.identifier, custom_fields: expected_custom_fields_to_update)
 
-      expect(mapper.fetch_image_url).to eql('www.image.com')
+      post.update_custom_fields(custom_fields)
     end
   end
 end

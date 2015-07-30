@@ -13,6 +13,7 @@ module Wprapper
     property :url
     property :status
     property :author_id
+    property :custom_fields
 
     class Mapper
       def initialize(wp_post_hash)
@@ -33,7 +34,8 @@ module Wprapper
           title_position:     fetch_custom_field('title_position', nil),
           url:                r.fetch('link'),
           status:             r.fetch('post_status'),
-          author_id:          r.fetch('post_author')
+          author_id:          r.fetch('post_author'),
+          custom_fields:      fetch_custom_fields
         }
       end
 
@@ -47,8 +49,8 @@ module Wprapper
         end
       end
 
-      def custom_fields
-        @wp_post_hash.fetch('custom_fields', [])
+      def fetch_custom_fields
+        @custom_fields ||= @wp_post_hash.fetch('custom_fields', [])
       end
 
       def terms
@@ -56,7 +58,7 @@ module Wprapper
       end
 
       def fetch_custom_field(key, default)
-        field = custom_fields.find { |f|
+        field = fetch_custom_fields.find { |f|
           f.fetch('key') == key
         }
 
@@ -111,8 +113,30 @@ module Wprapper
       end
     end
 
+    def update_custom_fields(new_custom_fields)
+      custom_fields_to_update = merge_custom_fields(new_custom_fields)
+      
+      Post.wordpress.update_post(identifier, custom_fields: custom_fields_to_update)
+    end
+
     def attributes
       to_h.except(:categories, :author_id)
     end
+
+    private
+      def find_custom_field_by_key(key)
+        custom_fields.find{|e| key == e['key'] }
+      end
+
+      def merge_custom_fields(new_custom_fields)
+        new_custom_fields.map do |key, value|
+          field = find_custom_field_by_key(key) || {}
+
+          field['key']   = key
+          field['value'] = value
+
+          field
+        end
+      end
   end
 end
