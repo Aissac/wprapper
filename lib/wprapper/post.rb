@@ -113,6 +113,10 @@ module Wprapper
       end
     end
 
+    def published?
+      status == 'publish'
+    end
+
     def update_custom_fields(new_custom_fields)
       custom_fields_to_update = merge_custom_fields(new_custom_fields)
       
