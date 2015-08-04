@@ -127,6 +127,14 @@ module Wprapper
       to_h.except(:categories, :author_id)
     end
 
+    def fetch_custom_field(key, default = nil)
+      field = find_custom_field_by_key(key)
+
+      return field['value'] if field.present?
+
+      default
+    end
+
     private
       def find_custom_field_by_key(key)
         custom_fields.find{|e| key == e['key'] }

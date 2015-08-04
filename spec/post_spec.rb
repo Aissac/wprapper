@@ -153,4 +153,34 @@ describe Wprapper::Post do
       post.update_custom_fields(custom_fields)
     end
   end
+
+  describe '.fetch_custom_field' do
+    let(:post) { Wprapper::Post.new }
+
+    before do
+      post.custom_fields = [ 
+        { 'id' => 1,   'key' => 'a', 'value' => 'x' },
+        { 'id' => 12,  'key' => 'b', 'value' => 'y' },
+        { 'id' => 123, 'key' => 'c', 'value' => 'z' }
+      ]
+    end
+
+    it 'should fetch the custom field with an existing value' do
+      result = post.fetch_custom_field('a')
+
+      expect(result).to eql('x')
+    end
+
+    it 'should return the default value if the key docent exists' do
+      result = post.fetch_custom_field('z')
+
+      expect(result).to be_nil
+    end
+
+    it 'should return the specified default value when the key docent exists' do
+      result = post.fetch_custom_field('z', 'default_value')
+
+      expect(result).to eql('default_value')
+    end
+  end
 end
