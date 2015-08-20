@@ -118,6 +118,7 @@ module Wprapper
     end
 
     def update_custom_fields(new_custom_fields)
+      new_custom_fields = cleanup_hash_of_nil_values(new_custom_fields)
       custom_fields_to_update = merge_custom_fields(new_custom_fields)
       
       Post.wordpress.update_post(identifier, custom_fields: custom_fields_to_update)
@@ -138,6 +139,10 @@ module Wprapper
     private
       def find_custom_field_by_key(key)
         custom_fields.find{|e| key == e['key'] }
+      end
+
+      def cleanup_hash_of_nil_values(hash)
+        hash.select { |key, value| !value.nil? }
       end
 
       def merge_custom_fields(new_custom_fields)
