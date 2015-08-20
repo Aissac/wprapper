@@ -131,7 +131,7 @@ describe Wprapper::Post do
   end
 
   describe '.update_custom_fields' do
-    let(:post) { Wprapper::Post.new }
+    let(:post) { Wprapper::Post.new({ identifier: '12345' }) }
 
     before do
       post.custom_fields = [ 
@@ -146,6 +146,18 @@ describe Wprapper::Post do
       expected_custom_fields_to_update = [
         { 'id' => 1, 'key' => 'a', 'value' => 'test' },
         { 'key' => 'z', 'value' => 'not existing' }
+      ]
+
+      expect_any_instance_of(Wprapper::Wordpress).to receive(:update_post).with(post.identifier, custom_fields: expected_custom_fields_to_update)
+
+      post.update_custom_fields(custom_fields)
+    end
+
+    it 'should not update with fields with nil value' do
+      custom_fields = { 'a' => nil, 'b' => 'new value' }
+
+      expected_custom_fields_to_update = [
+        { 'id' => 12, 'key' => 'b', 'value' => 'new value' }
       ]
 
       expect_any_instance_of(Wprapper::Wordpress).to receive(:update_post).with(post.identifier, custom_fields: expected_custom_fields_to_update)
