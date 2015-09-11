@@ -111,6 +111,16 @@ module Wprapper
 
         Post.new_from_wp(wp_post)
       end
+
+      def upload_feature_image(post_id, filename, image_bytes)
+        media = wordpress_json_api.upload_media(filename, image_bytes)
+
+        Post.set_featured_image(post_id, media['ID'])
+      end
+
+      def set_featured_image(post_id, media_id)
+        Post.wordpress.update_post(post_id, { post_thumbnail: media_id })
+      end
     end
 
     def published?
