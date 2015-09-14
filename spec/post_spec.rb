@@ -110,6 +110,15 @@ describe Wprapper::Post do
     end
   end
 
+  describe '.upload_feature_image' do
+    it 'should upload a image as feature image for a post', vcr: true do
+      file = File.open('./spec/fixtures/test.png')
+      result = Wprapper::Post.upload_feature_image('4572', 'test.png', file.read)
+      expect(result).not_to be_nil
+      expect(result).to eql(true)
+    end
+  end
+
   describe Wprapper::Post::Mapper do
     describe '.fetch_image_url' do
       it 'should fetch the image url successfuly from hash' do
