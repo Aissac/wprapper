@@ -112,6 +112,8 @@ describe Wprapper::Post do
 
   describe '.upload_feature_image' do
     it 'should upload a image as feature image for a post', vcr: true do
+      media_upload_response = JSON.parse(File.read('spec/fixtures/media_upload'))
+      expect_any_instance_of(Wprapper::WordpressJsonApi).to receive(:upload_media).and_return(media_upload_response)
       file = File.open('./spec/fixtures/test.png')
       result = Wprapper::Post.upload_feature_image('4572', 'test.png', file.read)
       expect(result).not_to be_nil
