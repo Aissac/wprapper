@@ -76,16 +76,16 @@ describe Wprapper::Post do
     it 'fetches the latest published posts', vcr: true do
       expected = [
         [
-          "12788", 
-          "http://takeover.staging.wpengine.com/this-rare-footage-of-elvis-goin-country-will-make-you-fall-in-love-with-him-all-over-again/"
+          "15410", 
+          "http://takeover2015.staging.wpengine.com/testt/"
         ], 
         [
-          "11048", 
-          "http://takeover.staging.wpengine.com/this-little-girl-saw-a-marine-and-cried-i-was-speechless-when-i-found-out-why/"
+          "15343", 
+          "http://takeover2015.staging.wpengine.com/she-called-out-obama-for-supporting-blacklivesmatter-watch-before-he-takes-this-down/"
         ], 
         [
-          "12155", 
-          "http://takeover.staging.wpengine.com/when-the-choir-started-singing-america-the-beautiful-i-couldnt-help-but-thank-god-for-our-country/"
+          "15344", 
+          "http://takeover2015.staging.wpengine.com/when-hollywood-attacked-sandra-bullocks-faith-her-response-silenced-them-to-shame/"
         ]
       ]
 
@@ -104,7 +104,7 @@ describe Wprapper::Post do
     it 'fetches the wordpress post', vcr: true  do
       wp_post = Wprapper::Post.find('5482')
 
-      expect(wp_post.url).to eql('http://takeover.staging.wpengine.com/ronda-rousey-kicks-jimmy-fallons-ass/')
+      expect(wp_post.url).to eql('http://takeover2015.staging.wpengine.com/ronda-rousey-kicks-jimmy-fallons-ass/')
       expect(wp_post.identifier).to eql('5482')
       expect(wp_post.title).to eql('Things Got Real When UFC Fighter Ronda Rousey Showed Jimmy Fallon Why She\'s Called The "Arm Collector"')
     end
