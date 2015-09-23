@@ -12,6 +12,10 @@ module Wprapper
       def wordpress
         Wordpress.new(configuration)
       end
+
+      def wordpress_json_api
+        WordpressJsonApi.new(configuration)
+      end
     end
   end
 end
