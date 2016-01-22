@@ -58,9 +58,9 @@ module Wprapper
       end
 
       def fetch_custom_field(key, default)
-        field = fetch_custom_fields.find { |f|
+        field = fetch_custom_fields.find do |f|
           f.fetch('key') == key
-        }
+        end
 
         if field.present?
           field.fetch('value')
@@ -70,14 +70,15 @@ module Wprapper
       end
 
       def fetch_categories
-        terms.select{|t| t['taxonomy'] == 'category'}
-             .map{|c| Category.new_from_wp(c)}
+        terms
+          .select { |t| t['taxonomy'] == 'category' }
+          .map { |c| Category.new_from_wp(c) }
       end
 
       def fetch_term(taxonomy, default)
-        term = terms.find { |t|
+        term = terms.find do |t|
           t.fetch('taxonomy') == taxonomy
-        }
+        end
 
         if term.present?
           term.fetch('name')
@@ -119,7 +120,7 @@ module Wprapper
       end
 
       def set_featured_image(post_id, media_id)
-        Post.wordpress.update_post(post_id, { post_thumbnail: media_id })
+        Post.wordpress.update_post(post_id, post_thumbnail: media_id)
       end
     end
 
@@ -130,7 +131,7 @@ module Wprapper
     def update_custom_fields(new_custom_fields)
       new_custom_fields = cleanup_hash_of_nil_values(new_custom_fields)
       custom_fields_to_update = merge_custom_fields(new_custom_fields)
-      
+
       Post.wordpress.update_post(identifier, custom_fields: custom_fields_to_update)
     end
 
@@ -147,12 +148,13 @@ module Wprapper
     end
 
     private
+
       def find_custom_field_by_key(key)
-        custom_fields.find{|e| key == e['key'] }
+        custom_fields.find { |e| key == e['key'] }
       end
 
       def cleanup_hash_of_nil_values(hash)
-        hash.select { |key, value| !value.nil? }
+        hash.select { |_, value| value.present? }
       end
 
       def merge_custom_fields(new_custom_fields)
