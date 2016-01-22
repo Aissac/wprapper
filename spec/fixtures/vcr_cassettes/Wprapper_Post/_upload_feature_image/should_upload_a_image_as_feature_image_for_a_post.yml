@@ -4,7 +4,7 @@ http_interactions:
     method: post
     uri: http://spdev:rQEUD5KAX4h0@takeover2015.staging.wpengine.com/wp-json/media
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: !binary |-
         iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AACPbUlEQVR4nOy9
         d4BdV3Xv/117n3LP7XeqpmjUiyXZkizJNu42HUwJwRBIIaSQ8h6EQF5CEl4M
@@ -877,7 +877,7 @@ http_interactions:
         class=\"attachment\"><a href=''\/\/d2vrsup6vl2y4n.cloudfront.net\/wp-content\/uploads\/2015\/09\/test.png''><img
         width=\"300\" height=\"190\" src=\"\/\/d2vrsup6vl2y4n.cloudfront.net\/wp-content\/uploads\/2015\/09\/test-300x190.png\"
         class=\"attachment-medium\" alt=\"test\" \/><\/a><\/p>\n","parent":null,"link":"http:\/\/takeover2015.staging.wpengine.com\/?attachment_id=15391","date":"2015-09-14T07:19:19","modified":"2015-09-14T07:19:19","format":"standard","slug":"test-9","guid":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test.png","excerpt":null,"menu_order":0,"comment_status":"closed","ping_status":"closed","sticky":false,"date_tz":"America\/Chicago","date_gmt":"2015-09-14T12:19:19","modified_tz":"America\/Chicago","modified_gmt":"2015-09-14T12:19:19","password":"","title_raw":"test","content_raw":"","excerpt_raw":"","guid_raw":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test.png","post_meta":[],"meta":{"links":{"self":"http:\/\/takeover2015.staging.wpengine.com\/wp-json\/media\/15391","author":"http:\/\/takeover2015.staging.wpengine.com\/wp-json\/users\/24","collection":"http:\/\/takeover2015.staging.wpengine.com\/wp-json\/media","replies":"http:\/\/takeover2015.staging.wpengine.com\/wp-json\/media\/15391\/comments","version-history":"http:\/\/takeover2015.staging.wpengine.com\/wp-json\/media\/15391\/revisions"}},"terms":[],"source":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test.png","is_image":true,"attachment_meta":{"width":300,"height":300,"file":"2015\/09\/test.png","sizes":{"thumbnail":{"file":"test-150x150.png","width":150,"height":150,"mime-type":"image\/png","url":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test-150x150.png"},"medium":{"file":"test-300x190.png","width":300,"height":190,"mime-type":"image\/png","url":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test-300x190.png"},"optin-monster-lightbox-theme-balance":{"file":"test-225x175.png","width":225,"height":175,"mime-type":"image\/png","url":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test-225x175.png"},"optin-monster-lightbox-theme-case-study":{"file":"test-280x245.png","width":280,"height":245,"mime-type":"image\/png","url":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test-280x245.png"},"optin-monster-lightbox-theme-clean-slate":{"file":"test-230x195.png","width":230,"height":195,"mime-type":"image\/png","url":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test-230x195.png"},"optin-monster-lightbox-theme-pendleton":{"file":"test-230x195.png","width":230,"height":195,"mime-type":"image\/png","url":"http:\/\/qpolcom.s3.amazonaws.com\/wp-content\/uploads\/2015\/09\/test-230x195.png"}},"image_meta":{"aperture":0,"credit":"","camera":"","caption":"","created_timestamp":0,"copyright":"","focal_length":0,"iso":0,"shutter_speed":0,"title":"","orientation":0}}}'
-    http_version: 
+    http_version:
   recorded_at: Mon, 14 Sep 2015 12:19:21 GMT
 - request:
     method: post
@@ -935,6 +935,6 @@ http_interactions:
             </param>
           </params>
         </methodResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 14 Sep 2015 12:19:22 GMT
 recorded_with: VCR 2.9.3
