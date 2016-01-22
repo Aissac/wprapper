@@ -15,7 +15,7 @@ module Wprapper
     end
 
     def user(identifier)
-      default_fields = [ :user_id, :email, :display_name ]
+      default_fields = [:user_id, :email, :display_name]
 
       client.getUser(user_id: identifier, fields: default_fields)
     end
@@ -25,11 +25,11 @@ module Wprapper
     end
 
     def client
-      @wp ||= Rubypress::Client.new({
+      @wp ||= Rubypress::Client.new(
         host:     @configuration.hostname,
         username: @configuration.username,
         password: @configuration.password
-      })
+      )
     end
   end
 end

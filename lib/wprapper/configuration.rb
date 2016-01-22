@@ -1,7 +1,6 @@
 module Wprapper
-	class Configuration
-    
-    # The wordpress hostname 
+  class Configuration
+    # The wordpress hostname
     attr_accessor :hostname
 
     # The credentials for the wordpress api
@@ -12,5 +11,5 @@ module Wprapper
         @config ||= new
       end
     end
-	end
+  end
 end
