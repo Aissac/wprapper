@@ -3,7 +3,7 @@ require 'active_support/core_ext/class/attribute'
 require 'hashie'
 
 module Wprapper
-	class Base < Hashie::Dash
+  class Base < Hashie::Dash
     class_attribute :configuration
 
     self.configuration = Configuration.current
