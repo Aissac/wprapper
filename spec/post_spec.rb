@@ -10,7 +10,7 @@ describe Wprapper::Post do
                                            published_at.hour,
                                            published_at.min,
                                            published_at.sec
-                                           )
+                                          )
 
       post = {
         'post_id'       => '1',
@@ -76,32 +76,32 @@ describe Wprapper::Post do
     it 'fetches the latest published posts', vcr: true do
       expected = [
         [
-          "15410", 
-          "http://takeover2015.staging.wpengine.com/testt/"
-        ], 
+          '15410',
+          'http://takeover2015.staging.wpengine.com/testt/'
+        ],
         [
-          "15343", 
-          "http://takeover2015.staging.wpengine.com/she-called-out-obama-for-supporting-blacklivesmatter-watch-before-he-takes-this-down/"
-        ], 
+          '15343',
+          'http://takeover2015.staging.wpengine.com/she-called-out-obama-for-supporting-blacklivesmatter-watch-before-he-takes-this-down/'
+        ],
         [
-          "15344", 
-          "http://takeover2015.staging.wpengine.com/when-hollywood-attacked-sandra-bullocks-faith-her-response-silenced-them-to-shame/"
+          '15344',
+          'http://takeover2015.staging.wpengine.com/when-hollywood-attacked-sandra-bullocks-faith-her-response-silenced-them-to-shame/'
         ]
       ]
 
-      actual = latest.map { |p|
+      actual = latest.map do |p|
         [
           p.identifier,
           p.url
         ]
-      }
+      end
 
       expect(actual).to eql(expected)
     end
   end
 
   describe '.find' do
-    it 'fetches the wordpress post', vcr: true  do
+    it 'fetches the wordpress post', vcr: true do
       wp_post = Wprapper::Post.find('5482')
 
       expect(wp_post.url).to eql('http://takeover2015.staging.wpengine.com/ronda-rousey-kicks-jimmy-fallons-ass/')
@@ -124,7 +124,7 @@ describe Wprapper::Post do
   describe Wprapper::Post::Mapper do
     describe '.fetch_image_url' do
       it 'should fetch the image url successfuly from hash' do
-        wp_post_hash = { 'post_thumbnail' => { 'link' => "www.image.com"  }}
+        wp_post_hash = { 'post_thumbnail' => { 'link' => 'www.image.com' } }
 
         mapper = Wprapper::Post::Mapper.new(wp_post_hash)
 
@@ -132,7 +132,7 @@ describe Wprapper::Post do
       end
 
       it 'should fetch the image url successfuly from array' do
-        wp_post_hash = { 'post_thumbnail' => [ "www.image.com" ] }
+        wp_post_hash = { 'post_thumbnail' => ['www.image.com'] }
 
         mapper = Wprapper::Post::Mapper.new(wp_post_hash)
 
@@ -142,10 +142,10 @@ describe Wprapper::Post do
   end
 
   describe '.update_custom_fields' do
-    let(:post) { Wprapper::Post.new({ identifier: '12345' }) }
+    let(:post) { Wprapper::Post.new(identifier: '12345') }
 
     before do
-      post.custom_fields = [ 
+      post.custom_fields = [
         { 'id' => 1,   'key' => 'a', 'value' => 'x' },
         { 'id' => 12,  'key' => 'b', 'value' => 'y' },
         { 'id' => 123, 'key' => 'c', 'value' => 'z' }
@@ -181,7 +181,7 @@ describe Wprapper::Post do
     let(:post) { Wprapper::Post.new }
 
     before do
-      post.custom_fields = [ 
+      post.custom_fields = [
         { 'id' => 1,   'key' => 'a', 'value' => 'x' },
         { 'id' => 12,  'key' => 'b', 'value' => 'y' },
         { 'id' => 123, 'key' => 'c', 'value' => 'z' }
