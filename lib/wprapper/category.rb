@@ -6,11 +6,11 @@ module Wprapper
 
     class << self
       def new_from_wp(c)
-        new({
+        new(
           identifier: c['term_id'],
           name:       c['name'],
           slug:       c['slug']
-        })
+        )
       end
     end
 
