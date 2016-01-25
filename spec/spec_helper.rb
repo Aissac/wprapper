@@ -1,6 +1,7 @@
 require 'vcr'
 require 'wprapper'
 require 'support/stub_config'
+require 'byebug'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

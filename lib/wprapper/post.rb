@@ -88,16 +88,38 @@ module Wprapper
       end
     end
 
+    ORDER_ASC  = 'asc'
+    ORDER_DESC = 'desc'
+    POST_DATE  = 'post_date_gmt'
+    POST_ID    = 'post_id'
+
     class << self
       def new_from_wp(r)
         new(Mapper.new(r).to_h)
       end
 
-      def latest(number)
+      def all(batch_size = 25, &block)
+        offset = 0
+
+        loop do
+          posts = get_published_posts(count: batch_size, offset: offset, order_by: POST_ID, order: ORDER_ASC)
+
+          posts.each(&block)
+
+          posts_size = posts.size
+
+          break if posts_size < batch_size
+
+          offset += posts_size
+        end
+      end
+
+      def get_published_posts(count:, offset:, order_by:, order:)
         filters = {
-          number:      number,
-          order:       'desc',
-          orderby:     'post_date_gmt',
+          number:      count,
+          offset:      offset,
+          order:       order,
+          orderby:     order_by,
           post_status: 'publish',
           post_type:   'post'
         }
@@ -105,6 +127,10 @@ module Wprapper
         wordpress.posts(filters).map do |r|
           Post.new_from_wp(r)
         end
+      end
+
+      def latest(count, offset = 0)
+        get_published_posts(count: count, offset: offset, order_by: POST_DATE, order: ORDER_DESC)
       end
 
       def find(post_id)
