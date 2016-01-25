@@ -89,14 +89,34 @@ describe Wprapper::Post do
         ]
       ]
 
-      actual = latest.map do |p|
+      actual = latest.map do |post|
         [
-          p.identifier,
-          p.url
+          post.identifier,
+          post.url
         ]
       end
 
       expect(actual).to eql(expected)
+    end
+  end
+
+  describe '.all' do
+    it 'fetches all the posts in batch specified by size and yields over them', vcr: true do
+      posts = []
+
+      expect(Wprapper::Post)
+        .to receive(:get_published_posts)
+        .and_return(
+          [double(identifier: 1), double(identifier: 2)],
+          [double(identifier: 3)]
+        )
+
+      Wprapper::Post.all(2) do |post|
+        posts << post
+      end
+
+      expect(posts.length).to eql(3)
+      expect(posts.map(&:identifier)).to eql([1, 2, 3])
     end
   end
 
