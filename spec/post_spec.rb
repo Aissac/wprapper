@@ -13,14 +13,15 @@ describe Wprapper::Post do
                                           )
 
       post = {
-        'post_id'       => '1',
-        'post_title'    => 'Foo Bar',
-        'link'          => 'http://example.com',
-        'post_content'  => 'text',
-        'post_date_gmt' => post_date_gmt,
-        'post_status'   => 'publish',
-        'post_author'   => '1',
-        'custom_fields' => [
+        'post_id'                => '1',
+        'post_title'             => 'Foo Bar',
+        'link'                   => 'http://example.com',
+        'post_content'           => 'text',
+        'post_processed_content' => 'html',
+        'post_date_gmt'          => post_date_gmt,
+        'post_status'            => 'publish',
+        'post_author'            => '1',
+        'custom_fields'          => [
           {
             'key'   => 'portrait_image',
             'value' => 'http://cat.jpg.to/'
@@ -49,6 +50,7 @@ describe Wprapper::Post do
         wp_post.title,
         wp_post.url,
         wp_post.content,
+        wp_post.processed_content,
         wp_post.portrait_image_url,
         wp_post.title_position,
         wp_post.categories,
@@ -60,6 +62,7 @@ describe Wprapper::Post do
         'Foo Bar',
         'http://example.com',
         'text',
+        'html',
         'http://cat.jpg.to/',
         'bottom',
         [{ identifier: '123', name: 'Entertainment', slug: 'entertainment' }],
@@ -76,16 +79,16 @@ describe Wprapper::Post do
     it 'fetches the latest published posts', vcr: true do
       expected = [
         [
-          '15410',
-          'http://takeover2015.staging.wpengine.com/testt/'
+          '27604',
+          'http://takeover2015.staging.wpengine.com/api-testing/'
         ],
         [
-          '15343',
-          'http://takeover2015.staging.wpengine.com/she-called-out-obama-for-supporting-blacklivesmatter-watch-before-he-takes-this-down/'
+          '27601',
+          'http://takeover2015.staging.wpengine.com/couple-slams-into-pole-at-85-mph-when-she-looks-out-the-window-she-sees-him-smiling/'
         ],
         [
-          '15344',
-          'http://takeover2015.staging.wpengine.com/when-hollywood-attacked-sandra-bullocks-faith-her-response-silenced-them-to-shame/'
+          '27599',
+          'http://takeover2015.staging.wpengine.com/4-navy-sailors-strike-a-pose-when-a-5th-one-steps-on-stage-the-whole-room-erupts/'
         ]
       ]
 
@@ -122,11 +125,13 @@ describe Wprapper::Post do
 
   describe '.find' do
     it 'fetches the wordpress post', vcr: true do
-      wp_post = Wprapper::Post.find('5482')
+      wp_post = Wprapper::Post.find('27604')
 
-      expect(wp_post.url).to eql('http://takeover2015.staging.wpengine.com/ronda-rousey-kicks-jimmy-fallons-ass/')
-      expect(wp_post.identifier).to eql('5482')
-      expect(wp_post.title).to eql('Things Got Real When UFC Fighter Ronda Rousey Showed Jimmy Fallon Why She\'s Called The "Arm Collector"')
+      expect(wp_post.url).to eql('http://takeover2015.staging.wpengine.com/api-testing/')
+      expect(wp_post.identifier).to eql('27604')
+      expect(wp_post.title).to eql('API "there\'s no spoon" Testing')
+      expect(wp_post.content).to eql("This is a page testing the API.\n\nhttps://youtu.be/QT4cpqf-MNA\n\n<h2>Lorem ipsum</h2>\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n<img src=\"http://qpolcom.s3.amazonaws.com/wp-content/uploads/2016/04/crazydogears.png\" alt=\"crazydogears\" width=\"360\" height=\"315\" class=\"alignnone size-full wp-image-27584\" />\n\n<ul>\n  <li>1 box of chocolates</li>\n  <li>1 bouquet flowers</li>\n</ul>\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n")
+      expect(wp_post.processed_content).to eql("<p>This is a page testing the API.</p>\n<p><span class='embed-youtube' style='text-align:center; display: block;'><iframe class='youtube-player' type='text/html' width='900' height='537' src='http://www.youtube.com/embed/QT4cpqf-MNA?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' frameborder='0' allowfullscreen='true'></iframe></span></p>\n<h2>Lorem ipsum</h2>\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n<p><img src=\"//d2vrsup6vl2y4n.cloudfront.net/wp-content/uploads/2016/04/crazydogears.png\" alt=\"crazydogears\" width=\"360\" height=\"315\" class=\"alignnone size-full wp-image-27584\" srcset=\"//d2vrsup6vl2y4n.cloudfront.net/wp-content/uploads/2016/04/crazydogears-280x245.png 280w, //d2vrsup6vl2y4n.cloudfront.net/wp-content/uploads/2016/04/crazydogears.png 360w\" sizes=\"(max-width: 360px) 100vw, 360px\" /></p>\n<ul>\n<li>1 box of chocolates</li>\n<li>1 bouquet flowers</li>\n</ul>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n")
     end
   end
 

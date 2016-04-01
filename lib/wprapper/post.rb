@@ -4,6 +4,7 @@ module Wprapper
   class Post < Base
     property :categories
     property :content
+    property :processed_content
     property :identifier
     property :image_url
     property :portrait_image_url
@@ -26,6 +27,7 @@ module Wprapper
         {
           categories:         fetch_categories,
           content:            r.fetch('post_content'),
+          processed_content:  r.fetch('post_processed_content'),
           identifier:         r.fetch('post_id'),
           image_url:          fetch_image_url,
           portrait_image_url: fetch_custom_field('portrait_image', nil),
