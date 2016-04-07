@@ -1,6 +1,10 @@
 language: ruby
 cache: bundler
 script: bundle exec rspec
+env:
+  - WP_HOSTNAME=takeover2015.staging.wpengine.com
+  - WP_PASSWORD=supersekrit
+  - WP_USERNAME=spdev
 rvm:
   - 2.2
   - 2.3
