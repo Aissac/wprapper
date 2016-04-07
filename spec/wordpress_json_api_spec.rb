@@ -1,7 +1,7 @@
 describe Wprapper::WordpressJsonApi do
   let(:config) { Wprapper::Configuration.current }
   let(:api) { Wprapper::WordpressJsonApi.new(config) }
-  
+
   describe '.auth_header' do
     it 'should create an authorization header' do
       config.username = "test"
@@ -45,7 +45,7 @@ describe Wprapper::WordpressJsonApi do
 
     it 'should upload successfuly the image successfuly to wordpress', vcr: true do
       wp_media = api.upload_media(image_filename, image_bytes)
-      expect(wp_media['ID']).to eql(15411)
+      expect(wp_media['ID']).to eql(27607)
     end
   end
 end

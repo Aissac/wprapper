@@ -1,0 +1,76 @@
+{
+  "http_interactions": [
+    {
+      "request": {
+        "method": "post",
+        "uri": "http://takeover2015.staging.wpengine.com/xmlrpc.php",
+        "body": {
+          "encoding": "UTF-8",
+          "base64_string": "PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxtZXRob2RDYWxsPjxtZXRob2ROYW1l\nPndwLmdldFVzZXI8L21ldGhvZE5hbWU+PHBhcmFtcz48cGFyYW0+PHZhbHVl\nPjxhcnJheT48ZGF0YT48dmFsdWU+PGk0PjA8L2k0PjwvdmFsdWU+PHZhbHVl\nPjxzdHJpbmc+c3BkZXY8L3N0cmluZz48L3ZhbHVlPjx2YWx1ZT48c3RyaW5n\nPjxXUF9QQVNTV09SRD48L3N0cmluZz48L3ZhbHVlPjx2YWx1ZT48c3RyaW5n\nPjQ8L3N0cmluZz48L3ZhbHVlPjx2YWx1ZT48YXJyYXk+PGRhdGE+PHZhbHVl\nPjxzdHJpbmc+dXNlcl9pZDwvc3RyaW5nPjwvdmFsdWU+PHZhbHVlPjxzdHJp\nbmc+ZW1haWw8L3N0cmluZz48L3ZhbHVlPjx2YWx1ZT48c3RyaW5nPmRpc3Bs\nYXlfbmFtZTwvc3RyaW5nPjwvdmFsdWU+PC9kYXRhPjwvYXJyYXk+PC92YWx1\nZT48L2RhdGE+PC9hcnJheT48L3ZhbHVlPjwvcGFyYW0+PC9wYXJhbXM+PC9t\nZXRob2RDYWxsPgo=\n"
+        },
+        "headers": {
+          "User-Agent": [
+            "XMLRPC::Client (Ruby 2.3.0)"
+          ],
+          "Content-Type": [
+            "text/xml; charset=utf-8"
+          ],
+          "Content-Length": [
+            "460"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Accept-Encoding": [
+            "identity"
+          ],
+          "Accept": [
+            "*/*"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "Server": [
+            "nginx"
+          ],
+          "Vary": [
+            "Accept-Encoding"
+          ],
+          "Content-Type": [
+            "text/xml; charset=UTF-8"
+          ],
+          "Date": [
+            "Thu, 07 Apr 2016 07:36:15 GMT"
+          ],
+          "Keep-Alive": [
+            "timeout=20"
+          ],
+          "Access-Control-Allow-Origin": [
+            "*"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Set-Cookie": [
+            "X-Mapping-fjhppofk=47C6F70E47F395D623F7C880EC915932; path=/"
+          ],
+          "Content-Length": [
+            "426"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "base64_string": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPG1ldGhv\nZFJlc3BvbnNlPgogIDxwYXJhbXM+CiAgICA8cGFyYW0+CiAgICAgIDx2YWx1\nZT4KICAgICAgPHN0cnVjdD4KICA8bWVtYmVyPjxuYW1lPnVzZXJfaWQ8L25h\nbWU+PHZhbHVlPjxzdHJpbmc+NDwvc3RyaW5nPjwvdmFsdWU+PC9tZW1iZXI+\nCiAgPG1lbWJlcj48bmFtZT5lbWFpbDwvbmFtZT48dmFsdWU+PHN0cmluZz5x\ncG9saXRpY2FsbGl6QGdtYWlsLmNvbTwvc3RyaW5nPjwvdmFsdWU+PC9tZW1i\nZXI+CiAgPG1lbWJlcj48bmFtZT5kaXNwbGF5X25hbWU8L25hbWU+PHZhbHVl\nPjxzdHJpbmc+SGlsbGFyeTwvc3RyaW5nPjwvdmFsdWU+PC9tZW1iZXI+Cjwv\nc3RydWN0PgogICAgICA8L3ZhbHVlPgogICAgPC9wYXJhbT4KICA8L3BhcmFt\ncz4KPC9tZXRob2RSZXNwb25zZT4K\n"
+        },
+        "http_version": null
+      },
+      "recorded_at": "Thu, 07 Apr 2016 07:36:16 GMT"
+    }
+  ],
+  "recorded_with": "VCR 3.0.1"
+}
