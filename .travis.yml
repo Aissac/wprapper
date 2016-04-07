@@ -3,3 +3,4 @@ cache: bundler
 script: bundle exec rake .env spec
 rvm:
   - 2.2
+  - 2.3
