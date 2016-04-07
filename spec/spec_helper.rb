@@ -15,8 +15,15 @@ RSpec.configure do |config|
   config.include(StubConfig, vcr: true)
 end
 
-VCR.configure do |config|
-  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
-  config.hook_into :webmock
-  config.configure_rspec_metadata!
+VCR.configure do |c|
+  c.default_cassette_options = {
+    record:                    :once,
+    erb:                       true,
+    serialize_with:            :json,
+    preserve_exact_body_bytes: true
+  }
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.filter_sensitive_data('<WP_PASSWORD>') { ENV['WP_PASSWORD'] }
 end

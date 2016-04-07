@@ -1,0 +1,76 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "Thu, 07 Apr 2016 07:36:22 GMT",
+      "request": {
+        "body": {
+          "base64_string": "PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxtZXRob2RDYWxsPjxtZXRob2ROYW1l\nPndwLmVkaXRQb3N0PC9tZXRob2ROYW1lPjxwYXJhbXM+PHBhcmFtPjx2YWx1\nZT48YXJyYXk+PGRhdGE+PHZhbHVlPjxpND4wPC9pND48L3ZhbHVlPjx2YWx1\nZT48c3RyaW5nPnNwZGV2PC9zdHJpbmc+PC92YWx1ZT48dmFsdWU+PHN0cmlu\nZz48V1BfUEFTU1dPUkQ+PC9zdHJpbmc+PC92YWx1ZT48dmFsdWU+PHN0cmlu\nZz40NTcyPC9zdHJpbmc+PC92YWx1ZT48dmFsdWU+PHN0cnVjdD48bWVtYmVy\nPjxuYW1lPnBvc3RfdGh1bWJuYWlsPC9uYW1lPjx2YWx1ZT48aTQ+MTU0MDA8\nL2k0PjwvdmFsdWU+PC9tZW1iZXI+PC9zdHJ1Y3Q+PC92YWx1ZT48L2RhdGE+\nPC9hcnJheT48L3ZhbHVlPjwvcGFyYW0+PC9wYXJhbXM+PC9tZXRob2RDYWxs\nPgo=\n",
+          "encoding": "UTF-8"
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "identity"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Length": [
+            "406"
+          ],
+          "Content-Type": [
+            "text/xml; charset=utf-8"
+          ],
+          "User-Agent": [
+            "XMLRPC::Client (Ruby 2.3.0)"
+          ]
+        },
+        "method": "post",
+        "uri": "http://takeover2015.staging.wpengine.com/xmlrpc.php"
+      },
+      "response": {
+        "body": {
+          "base64_string": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPG1ldGhv\nZFJlc3BvbnNlPgogIDxwYXJhbXM+CiAgICA8cGFyYW0+CiAgICAgIDx2YWx1\nZT4KICAgICAgPGJvb2xlYW4+MTwvYm9vbGVhbj4KICAgICAgPC92YWx1ZT4K\nICAgIDwvcGFyYW0+CiAgPC9wYXJhbXM+CjwvbWV0aG9kUmVzcG9uc2U+Cg==\n",
+          "encoding": "UTF-8"
+        },
+        "headers": {
+          "Access-Control-Allow-Origin": [
+            "*"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Type": [
+            "text/xml; charset=UTF-8"
+          ],
+          "Date": [
+            "Thu, 07 Apr 2016 07:36:20 GMT"
+          ],
+          "Keep-Alive": [
+            "timeout=20"
+          ],
+          "Server": [
+            "nginx"
+          ],
+          "Set-Cookie": [
+            "X-Mapping-fjhppofk=6A891298BE85669B7C4B63BC0B5A6408; path=/"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
+          "Vary": [
+            "Accept-Encoding"
+          ]
+        },
+        "http_version": null,
+        "status": {
+          "code": 200,
+          "message": "OK"
+        }
+      }
+    }
+  ],
+  "recorded_with": "VCR 3.0.1"
+}
