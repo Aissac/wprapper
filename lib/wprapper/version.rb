@@ -1,3 +1,3 @@
 module Wprapper
-  VERSION = '1.1.0.116857957'
+  VERSION = '1.2.0'
 end
