@@ -15,6 +15,7 @@ module Wprapper
     property :status
     property :author_id
     property :custom_fields
+    property :type
 
     class Mapper
       def initialize(wp_post_hash)
@@ -36,6 +37,7 @@ module Wprapper
           title_position:     fetch_custom_field('title_position', nil),
           url:                r.fetch('link'),
           status:             r.fetch('post_status'),
+          type:               r.fetch('post_type'),
           author_id:          r.fetch('post_author'),
           custom_fields:      fetch_custom_fields
         }
@@ -154,6 +156,10 @@ module Wprapper
 
     def published?
       status == 'publish'
+    end
+
+    def post?
+      type == 'post'
     end
 
     def update_custom_fields(new_custom_fields)

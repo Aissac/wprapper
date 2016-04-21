@@ -20,6 +20,7 @@ describe Wprapper::Post do
         'post_processed_content' => 'html',
         'post_date_gmt'          => post_date_gmt,
         'post_status'            => 'publish',
+        'post_type'              => 'post',
         'post_author'            => '1',
         'custom_fields'          => [
           {
@@ -54,6 +55,7 @@ describe Wprapper::Post do
         wp_post.portrait_image_url,
         wp_post.title_position,
         wp_post.categories,
+        wp_post.type,
         wp_post.published_at.to_s(:db)
       ]
 
@@ -66,6 +68,7 @@ describe Wprapper::Post do
         'http://cat.jpg.to/',
         'bottom',
         [{ identifier: '123', name: 'Entertainment', slug: 'entertainment' }],
+        'post',
         published_at.to_s(:db)
       ]
 
