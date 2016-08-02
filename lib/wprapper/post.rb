@@ -152,6 +152,10 @@ module Wprapper
       def set_featured_image(post_id, media_id)
         Post.wordpress.update_post(post_id, post_thumbnail: media_id)
       end
+
+      def touch(post_id)
+        Post.wordpress.update_post(post_id, {})
+      end
     end
 
     def published?

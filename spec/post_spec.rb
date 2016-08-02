@@ -234,4 +234,11 @@ describe Wprapper::Post do
       expect(result).to eql('default_value')
     end
   end
+
+  describe '.touch' do
+    it 'touches wordpress post', vcr: true do
+      result = Wprapper::Post.touch('36489')
+      expect(result).to eql(true)
+    end
+  end
 end
