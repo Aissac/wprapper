@@ -156,6 +156,10 @@ module Wprapper
       def touch(post_id)
         Post.wordpress.update_post(post_id, {})
       end
+
+      def delete(post_id)
+        Post.wordpress.delete_post(post_id)
+      end
     end
 
     def published?
