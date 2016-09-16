@@ -241,4 +241,11 @@ describe Wprapper::Post do
       expect(result).to eql(true)
     end
   end
+
+  describe '.delete' do
+    it 'removes wordpress post', vcr: true do
+      result = Wprapper::Post.delete('43616')
+      expect(result).to eql(true)
+    end
+  end
 end

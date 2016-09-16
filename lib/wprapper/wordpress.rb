@@ -24,6 +24,10 @@ module Wprapper
       client.editPost(post_id: identifier, content: options)
     end
 
+    def delete_post(identifier)
+      client.deletePost(post_id: identifier)
+    end
+
     def client
       @wp ||= Rubypress::Client.new(
         host:     @configuration.hostname,
